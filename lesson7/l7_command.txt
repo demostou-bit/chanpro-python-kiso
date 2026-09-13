@@ -1,0 +1,29 @@
+●P258
+Windowsの場合
+
+データ処理用
+----------
+pip install pandas
+----------
+機械学習用
+----------
+pip install scikit-learn
+----------
+グラフの描画
+----------
+pip install matplotlib
+----------
+
+Macの場合
+データ処理用
+----------
+pip3 install pandas
+----------
+機械学習用
+----------
+pip3 install scikit-learn
+----------
+グラフの描画
+----------
+pip3 install matplotlib
+----------
