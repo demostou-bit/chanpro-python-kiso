@@ -1,0 +1,137 @@
+●P235 Scrapyのインストール
+
+Windowsの場合
+----------
+pip install scrapy
+----------
+
+Macの場合
+----------
+pip3 install scrapy
+----------
+
+●P239 Scrapy Shellを実行
+----------
+scrapy shell
+----------
+
+●P240 fetchコマンドでHTMLを取得
+----------
+fetch("https://book.impress.co.jp")
+----------
+
+HTMLファイル全体をテキストとして取り出す
+----------
+response.text
+----------
+
+●P241 cssメソッド（タイトル部分）
+----------
+response.css("title")
+----------
+
+h4要素をすべて取り出す
+----------
+response.css("h4")
+----------
+
+●P242 title要素を取り出す
+----------
+response.xpath("/html/head/title")
+----------
+
+途中の要素を省略して取り出す
+----------
+response.xpath("//title")
+----------
+
+h4要素をすべて取り出す
+----------
+response.xpath("//h4")
+----------
+
+HTMLコード部分を抽出
+----------
+response.css("title").get()
+----------
+
+タグを取り除いたテキストのみを取り出す（cssメソッドの場合）
+----------
+response.css("title::text").get()
+----------
+
+●P243 タグを取り除いたテキストのみを取り出す（xpathメソッドの場合）
+----------
+response.xpath("//title/text()").get()
+----------
+
+新刊部分のタイトルを順に表示
+----------
+for b in response.css("div.module-book-list-item-body-head"):
+----------
+続けて入力
+----------
+    print(b.css("h4 a::text").get())
+----------
+最後にEnterを押す
+
+
+●P244 リンク先を文字列として取り出す
+----------
+for b in response.css("div.module-book-list-item-body-head"):
+----------
+続けて入力
+----------
+    print(b.css("h4 a").attrib['href'])
+----------
+最後にEnterを押す
+
+Scrapyのプロジェクトを作成する
+----------
+scrapy startproject newbooks
+----------
+
+●P246 テンプレートの一覧を確認
+----------
+scrapy genspider -l
+----------
+
+basicテンプレートでスパイダーを作成
+----------
+cd newbooks
+----------
+spidersディレクトリの下に、スパイダーのPythonファイルとして
+「show_newbooks1」が作成される
+----------
+scrapy genspider show_newbooks1 book.impress.co.jp
+----------
+
+●P249 show_newbooksを実行する
+----------
+scrapy crawl show_newbooks1
+----------
+
+●P250 scrapy crawlコマンドの結果をJSONファイルの保存
+----------
+scrapy crawl show_newbooks1 -o newbooks1.json
+----------
+
+●P251 別のスパイダーを作成する
+----------
+scrapy genspider show_newbooks2 book.impress.co.jp
+----------
+
+●P253 show_newbooks2.jsonを作成
+----------
+scrapy crawl show_newbooks2 -o newbooks2.json
+----------
+
+●P256
+----------
+pymanager install 3.12
+----------
+
+----------
+py -3.12 -m pip install pgzero
+----------
+

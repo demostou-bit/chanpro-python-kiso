@@ -1,0 +1,46 @@
+Scrapyのプロジェクトを作成する
+----------
+scrapy startproject newbooks
+----------
+
+newbooks
+   |
+   |----newbooks
+   |           |
+   |           |---__init__.py
+   |           |---items.py
+   |           |---middlewares.py
+   |           |---pipelines.py
+   |           |---settings.py
+   |           |---spiders
+   |                  |
+   |                  |---__init__.py
+   |
+   |---scrapy.cfg
+
+basicテンプレートでスパイダーを作成
+----------
+cd newbooks
+----------
+続けて入力
+----------
+scrapy genspider show_newbooks1 book.impress.co.jp
+----------
+
+スパイダーのPythonファイル
+newbooks
+   |
+   |----newbooks
+   |           |---__init__.py
+   |           |---items.py
+   |           |---middlewares.py
+   |           |---pipelines.py
+   |           |---settings.py
+   |           |
+   |           |--spiders
+   |                 |
+   |                 |---__init__.py
+   |                 |---show_newbooks1.py（作成されたスパイダー）
+   |	             |---show_newbooks2.py（新たに作成されたスパイダー）
+   |
+   |----scrapy.cfg
